@@ -62,9 +62,22 @@ PawBench 两个 trial 的原 grader 执行成功；模型均 budget_exhausted（
 | T-012 | P-001、P-003 | bundle、公开 exports、Schema、peers；真实 loader 激活 | 完成 |
 | T-013 | P-002 | 自动挂载/卸载、同 ID 恢复、fork 独立计量、手动维护锁及落盘失败只关闭一次；6 项回归 | 完成 |
 | T-014 | P-004、P-005 | 包外 CLI/资源/原 grader；白名单、MIT、prepare 与 provenance；独立 tarball/干净源码安装 | 完成 |
-| T-015 | P-006 | 真实 CLI add/dump-config/启动两组/跨窗/JSONL resume/remove，隔离 home 与日志 | 完成（Windows，固定 HMR 1.0.16） |
-| T-016 | P-007 | RELEASE、CHANGELOG、Windows/Ubuntu CI、报告与包哈希 | 完成（远程 CI 未执行） |
+| T-015 | P-006 | 真实 CLI add/dump-config/启动两组/跨窗/JSONL resume/remove，隔离 home 与日志 | 完成（Windows 本地与 Linux CI，固定 HMR 1.0.16） |
+| T-016 | P-007 | RELEASE、CHANGELOG、Windows/Ubuntu CI、报告与包哈希 | 完成（Windows/Ubuntu CI 实际通过，源 commit af63bd4） |
 
 本地证据：runs/release/dsh-agent-benchmark-0.2.0-rc.1.tgz、package-report.json、profile-report.json；profile-home-* 保存配置与原生日志。最终报告 SHA-256 必须匹配 tarball。验收不继承 API key、不新增付费调用。
 
-该阶段达到固定宿主组合的本地发布候选判据；实际 npm/目录发布、远程 Git 安装和跨平台执行结果尚未交付。默认 HMR 1.0.19 缺失 registerConfig，属于已复现的宿主组合问题；1.0.16 验收通过，不声称任意当前 dsh 安装均可用。
+该阶段达到固定宿主组合的发布候选判据；远程 Git 与跨平台执行已交付。GitHub 预发布包已公开，npm/目录生产收录分别见下方追加任务。默认 HMR 1.0.19 缺失 registerConfig，属于已复现的宿主组合问题；1.0.16 验收通过，不声称任意当前 dsh 安装均可用。
+
+## 公开发布追加任务
+
+用户明确要求 Linux CI、远程 Git 安装及 npm/社区目录公开发布，并确认 npm 名称 dsh-agent-benchmark。原实验保持冻结。
+
+| ID | 产物与完成判据 | 状态 |
+| --- | --- | --- |
+| T-017 | Windows/Ubuntu 37 项测试、独立包安装；Linux 真实 dsh profile 两策略/恢复/卸载；报告与包哈希匹配 | 完成，CI 37009765551 全部通过 |
+| T-018 | 固定远程 commit 安装并验证公开入口与 CLI；真实 dsh CLI Git add/恢复/remove | 完成，Linux CI 与 Windows 原生 Git 安装通过 |
+| T-019 | MIT 预发布包公开；npm next 发布后核对版本与 registry integrity | GitHub v0.2.0-rc.1 已发布；npm 等待本机登录 |
+| T-020 | 社区源文件检查、提交 PR、合并及生产目录收录 | 完成，PR #119 合并、Cloudflare 部署通过；生产页 200、badge listed |
+
+最新状态与公开证据见 [PUBLICATION_STATUS](PUBLICATION_STATUS.md)。冻结的源码 commit af63bd4d2117b7be0cbb77890c9829a2b02e300a 对应 CI 与 GitHub 安装包；状态文档更新不改写该包。

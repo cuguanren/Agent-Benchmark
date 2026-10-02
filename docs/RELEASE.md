@@ -1,6 +1,6 @@
 # dsh 插件安装与发布验收
 
-版本：0.2.0-rc.1，MIT。当前为本地发布候选，未上传 npm 或提交社区目录。Windows / Node.js 24.14.0 / Python 3.14.3 已验证；Linux CI 已配置，尚无远程执行结果。
+版本：0.2.0-rc.1，MIT。[GitHub 预发布包](https://github.com/cuguanren/Agent-Benchmark/releases/tag/v0.2.0-rc.1)与[社区目录](https://dsh.pub/en/plugins/dsh-agent-benchmark/)已公开，npm 等待发布者登录。Windows/Ubuntu CI 的类型、37 项测试、包安装与远程 Git 安装通过；Linux 真实 profile 的两种策略及 JSONL 恢复通过。CI 使用 Node.js 24.21.0；[实时发布状态](PUBLICATION_STATUS.md)记录目录生产收录与 npm 状态。
 
 ## 安装
 

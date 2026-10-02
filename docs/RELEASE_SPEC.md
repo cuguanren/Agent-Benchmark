@@ -19,3 +19,7 @@
 配置重载只在现存 Agent 空闲时验证；策略或容量配置变化不能静默解释已有不匹配 checkpoint。已有 checkpoint 不兼容时明确拒绝，操作者恢复原配置或新建 session。卸载移除本插件工具及监听，保留持久数据；不替用户删除 session。
 
 本次发布验证不要求外部模型任务成功、完整基准、容器或多模型支持。MIT 不覆盖第三方代码的独立许可；全部声明保持原样。
+
+## 公开发布阶段追加
+
+用户随后明确授权执行 Linux CI、远程 Git 安装、npm/社区目录公开发布；原名称 agent-benchmark 已被其他 npm 发布者占用，用户确认改为 dsh-agent-benchmark。内部插件名与 CLI 保持 agent-benchmark，兼容既有 checkpoint。版本 0.2.0-rc.1，MIT，npm next tag。公开源码与 committed dist/src 满足目录的静态运行入口检查；Git prepare 仍重建。实际发布完成须分别验证 CI、registry integrity 和生产目录，不能以 PR 已合并替代上线。证据见 [PUBLICATION_STATUS](PUBLICATION_STATUS.md)。

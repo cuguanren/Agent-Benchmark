@@ -1,6 +1,6 @@
 # Agent-Benchmark
 
-基于 DeepSeek Harness（dsh）的上下文策略插件与实验运行器。npm 名称 `dsh-agent-benchmark`，0.2.0-rc.1 / MIT；安装、配置、卸载和支持版本见 [发布指南](docs/RELEASE.md)，公开发布状态见 [执行记录](docs/PUBLICATION_STATUS.md)。
+基于 DeepSeek Harness（dsh）的上下文策略插件与实验运行器。npm 名称 `dsh-agent-benchmark`，0.2.0-rc.1 / MIT；安装、配置、卸载和支持版本见 [发布指南](docs/RELEASE.md)，公开发布状态见 [执行记录](docs/PUBLICATION_STATUS.md)。已公开的安装包见 [GitHub 预发布](https://github.com/cuguanren/Agent-Benchmark/releases/tag/v0.2.0-rc.1)，插件已收录于 [dsh.pub](https://dsh.pub/en/plugins/dsh-agent-benchmark/)。
 
 37 项测试与 4 个离线策略试验通过。官方 `deepseek-flash`（V4.1-Flash）完成 24 个开发 trial、96 个评测 trial，全部有 API usage。评测集本地摘要正确 40/48，换窗恢复正确 39/48；成功率差区间包含 0，不支持策略优劣结论。资源和失败分析见 [RESULTS](docs/RESULTS.md)。发布工程不改写冻结实验或其源码快照。
 
