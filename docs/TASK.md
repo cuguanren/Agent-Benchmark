@@ -77,7 +77,7 @@ PawBench 两个 trial 的原 grader 执行成功；模型均 budget_exhausted（
 | --- | --- | --- |
 | T-017 | Windows/Ubuntu 37 项测试、独立包安装；Linux 真实 dsh profile 两策略/恢复/卸载；报告与包哈希匹配 | 完成，CI 37009765551 全部通过 |
 | T-018 | 固定远程 commit 安装并验证公开入口与 CLI；真实 dsh CLI Git add/恢复/remove | 完成，Linux CI 与 Windows 原生 Git 安装通过 |
-| T-019 | MIT 预发布包公开；npm next 发布后核对版本与 registry integrity | GitHub v0.2.0-rc.1 已发布；npm 已登录；账号 2FA 未开启，publish E403，待启用后重试 |
+| T-019 | MIT 预发布包公开；npm next 发布后核对版本与 registry integrity | 完成：GitHub/npm 0.2.0-rc.1 已发布；next、registry integrity、公开冷安装和原生 dsh npm 安装通过 |
 | T-020 | 社区源文件检查、提交 PR、合并及生产目录收录 | 完成，PR #119 合并、Cloudflare 部署通过；生产页 200、badge listed |
 
 最新状态与公开证据见 [PUBLICATION_STATUS](PUBLICATION_STATUS.md)。冻结的源码 commit af63bd4d2117b7be0cbb77890c9829a2b02e300a 对应 CI 与 GitHub 安装包；状态文档更新不改写该包。

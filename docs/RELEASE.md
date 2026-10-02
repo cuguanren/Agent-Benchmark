@@ -1,6 +1,6 @@
 # dsh 插件安装与发布验收
 
-版本：0.2.0-rc.1，MIT。[GitHub 预发布包](https://github.com/cuguanren/Agent-Benchmark/releases/tag/v0.2.0-rc.1)与[社区目录](https://dsh.pub/en/plugins/dsh-agent-benchmark/)已公开，npm 发布者已登录，等待账号启用双因素认证。Windows/Ubuntu CI 的类型、37 项测试、包安装与远程 Git 安装通过；Linux 真实 profile 的两种策略及 JSONL 恢复通过。CI 使用 Node.js 24.21.0；[实时发布状态](PUBLICATION_STATUS.md)记录目录生产收录与 npm 状态。
+版本：0.2.0-rc.1，MIT。[GitHub 预发布包](https://github.com/cuguanren/Agent-Benchmark/releases/tag/v0.2.0-rc.1)与[社区目录](https://dsh.pub/en/plugins/dsh-agent-benchmark/)已公开，[npm 0.2.0-rc.1](https://www.npmjs.com/package/dsh-agent-benchmark/v/0.2.0-rc.1)已发布并通过公开安装验收。Windows/Ubuntu CI 的类型、37 项测试、包安装与远程 Git 安装通过；Linux 真实 profile 的两种策略及 JSONL 恢复通过。CI 使用 Node.js 24.21.0；[实时发布状态](PUBLICATION_STATUS.md)记录目录生产收录与 npm 状态。
 
 ## 安装
 
@@ -8,12 +8,12 @@
 
 ```sh
 npm install --prefix ./dsh-host --save-exact @deepseek-ai/dsh@0.1.0-rc.8 @deepseek-ai/cordis-plugin-hmr@1.0.16
-node ./dsh-host/node_modules/@deepseek-ai/dsh/lib/bin.js plugin --profile headless add /absolute/path/dsh-agent-benchmark-0.2.0-rc.1.tgz
+node ./dsh-host/node_modules/@deepseek-ai/dsh/lib/bin.js plugin --profile headless add dsh-agent-benchmark@0.2.0-rc.1
 node ./dsh-host/node_modules/@deepseek-ai/dsh/lib/bin.js --profile headless --dump-config
 node ./dsh-host/node_modules/@deepseek-ai/dsh/lib/bin.js --profile headless "your task"
 ```
 
-需要 pnpm 在 PATH 中；安装 tarball 无需构建许可。模型与凭据由宿主配置，插件不添加模型服务。dump-config 应显示 agent-benchmark、agent-benchmark-persistence 启用，以及 session-persistence-jsonl、compaction-basic、tool-result-pruner 禁用，且没有 skipped patch 警告。
+需要 pnpm 在 PATH 中；也可将 add 的包名替换为 GitHub 预发布中下载的 tarball 绝对路径，npm/tarball 安装无需构建许可。该版本为 RC，使用 @next 或锁定上述版本；npm 自动生成的 latest 也指向此 RC，移除请求被 E400 拒绝。模型与凭据由宿主配置，插件不添加模型服务。dump-config 应显示 agent-benchmark、agent-benchmark-persistence 启用，以及 session-persistence-jsonl、compaction-basic、tool-result-pruner 禁用，且没有 skipped patch 警告。
 
 bundle 替换默认压缩服务、关闭结果裁剪，并以支持 benchmark 扩展 envelope 的 JSONL 子类替换默认存储；默认仍使用 `$DSH_HOME/sessions`。如果原 JSONL 行配置了其他 root、压缩或写入选项，将其完整复制到 `agent-benchmark-persistence.config`。上游 patch 的 name 是身份校验，config 是整块替换；不能通过改 name 重命名插件。其他存储 backend 不在支持范围内。
 
