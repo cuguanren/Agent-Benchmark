@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "mode": "conformance",
+  "config": {
+    "capacityTokens": 2048,
+    "triggerTokens": 700,
+    "outputReserveTokens": 128,
+    "summaryOutputTokens": 128,
+    "userRetentionTokens": 64,
+    "totalTokenBudget": 10000
+  },
+  "scenarios": [
+    { "id": "explicit-note", "key": "case_4821", "constraint": "answer in Chinese", "saveNote": true, "noiseBytes": 3000 },
+    { "id": "history-fallback", "key": "case_9736", "constraint": "preserve the exact ID", "saveNote": false, "noiseBytes": 3000 }
+  ]
+}

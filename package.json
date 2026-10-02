@@ -1,0 +1,126 @@
+{
+  "name": "dsh-agent-benchmark",
+  "version": "0.2.0-rc.1",
+  "type": "module",
+  "description": "Installable dsh context-strategy plugin and reproducible Agent benchmark runner",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js",
+      "default": "./dist/src/index.js"
+    },
+    "./dsh": {
+      "types": "./dist/src/dsh.d.ts",
+      "import": "./dist/src/dsh.js",
+      "default": "./dist/src/dsh.js"
+    },
+    "./native": {
+      "types": "./dist/src/native.d.ts",
+      "import": "./dist/src/native.js",
+      "default": "./dist/src/native.js"
+    },
+    "./runtime": {
+      "types": "./dist/src/native-runtime.d.ts",
+      "import": "./dist/src/native-runtime.js",
+      "default": "./dist/src/native-runtime.js"
+    },
+    "./persistence": {
+      "types": "./dist/src/native-persistence.d.ts",
+      "import": "./dist/src/native-persistence.js",
+      "default": "./dist/src/native-persistence.js"
+    },
+    "./resources": {
+      "types": "./dist/src/resources.d.ts",
+      "import": "./dist/src/resources.js",
+      "default": "./dist/src/resources.js"
+    },
+    "./external": {
+      "types": "./dist/src/external.d.ts",
+      "import": "./dist/src/external.js",
+      "default": "./dist/src/external.js"
+    }
+  },
+  "bin": {
+    "agent-benchmark": "./dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "tsc --noEmit",
+    "test": "tsc && node --test dist/tests/*.test.js",
+    "demo": "npm run build && node dist/src/cli.js run examples/conformance.json --out runs/demo",
+    "prepare": "npm run build",
+    "prepack": "npm run build",
+    "verify:package": "node scripts/verify-package.mjs",
+    "verify:profile": "node scripts/profile-smoke.mjs",
+    "verify:git": "node scripts/verify-git.mjs",
+    "prepublishOnly": "npm run check && npm test && npm run verify:package && npm run verify:profile"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0",
+    "@deepseek-ai/cordis": "4.0.4",
+    "@deepseek-ai/dsh-agent": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-agent-loop": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-anonymous-user-id": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-compaction": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-credentials": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-llm": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-llm-deepseek": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-scope": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-session": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-session-persistence": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-session-persistence-jsonl": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-settings": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-system-prompt": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-tools": "0.1.0-rc.8"
+  },
+  "license": "MIT",
+  "publishConfig": { "access": "public", "tag": "next" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cuguanren/Agent-Benchmark.git"
+  },
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "files": [
+    "dist/src",
+    "src",
+    "provenance",
+    "third_party",
+    "examples",
+    "scripts/build.mjs",
+    "cordis.patch.yml",
+    "CHANGELOG.md",
+    "docs",
+    "tsconfig.json",
+    "tsconfig.build.json"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "4.0.4",
+    "@deepseek-ai/dsh-agent": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-agent-loop": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-anonymous-user-id": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-compaction": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-credentials": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-llm": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-llm-deepseek": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-scope": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-session": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-session-persistence": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-session-persistence-jsonl": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-settings": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-system-prompt": "0.1.0-rc.8",
+    "@deepseek-ai/dsh-tools": "0.1.0-rc.8"
+  }
+}

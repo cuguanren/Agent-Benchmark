@@ -1,0 +1,20 @@
+PawBench
+Copyright 2026 The PawBench Authors
+
+This product includes software developed by The PawBench Authors
+(https://github.com/agentscope-ai/PawBench).
+
+Licensed under the Apache License, Version 2.0 (the "License").
+See the LICENSE file for the full license text.
+
+---
+
+PawBench reuses tasks from the following upstream agent benchmark suites.
+Each upstream task retains its original license; please refer to the
+respective upstream repositories for details:
+
+  * Claw-Eval         — https://github.com/claw-eval/claw-eval
+  * QwenClawBench     — https://github.com/SKYLENAGE-AI/QwenClawBench
+  * WildClawBench     — https://github.com/InternLM/WildClawBench
+  * PinchBench        — https://github.com/pinchbench/skill
+  * skillsbench       — https://github.com/benchflow-ai/skillsbench

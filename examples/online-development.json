@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "mode": "online",
+  "model": "deepseek-flash",
+  "taskset": "controlled-v1",
+  "split": "development",
+  "repetitions": 1,
+  "maxCalls": 16,
+  "globalTokenBudget": 2000000,
+  "turnTimeoutMs": 180000,
+  "config": {
+    "capacityTokens": 16000,
+    "triggerTokens": 12000,
+    "scope": "body-after-prefix",
+    "outputReserveTokens": 1024,
+    "summaryOutputTokens": 1024,
+    "userRetentionTokens": 1024,
+    "totalTokenBudget": 40000,
+    "summaryRetries": 1,
+    "timeoutMs": 60000,
+    "reminderTokens": 1000
+  }
+}

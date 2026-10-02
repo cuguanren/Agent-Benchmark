@@ -1,0 +1,13 @@
+- id: session-persistence-jsonl
+  disabled: true
+- id: compaction-basic
+  disabled: true
+- id: tool-result-pruner
+  disabled: true
+- insert:
+    - id: agent-benchmark-persistence
+      name: dsh-agent-benchmark/persistence
+      config:
+        root: !!js dshHomePath('sessions')
+    - id: agent-benchmark
+      name: dsh-agent-benchmark

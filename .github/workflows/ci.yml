@@ -1,0 +1,71 @@
+name: Verify plugin
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  package:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
+      - run: npm run verify:package
+      - uses: actions/upload-artifact@v4
+        with:
+          name: package-${{ matrix.os }}
+          path: runs/release/*.json
+  profile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '11.19.0'
+      - run: npm ci
+      - run: npm install --prefix runs/release-tools --no-audit --no-fund --save-exact @deepseek-ai/dsh@0.1.0-rc.8 @deepseek-ai/cordis-plugin-hmr@1.0.16
+      - run: npm run verify:package
+      - run: npm run verify:profile
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: profile-linux
+          path: |
+            runs/release/*.json
+            runs/release/*.tgz
+            runs/release/profile-home-*/*.log
+            runs/release/profile-home-*/boot-*.json
+  git-install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - run: npm run verify:git
+        env:
+          BENCHMARK_GIT_REF: ${{ github.sha }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: git-linux
+          path: runs/release/git-report.json

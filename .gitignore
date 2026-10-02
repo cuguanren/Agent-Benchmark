@@ -1,0 +1,6 @@
+node_modules/
+dist/
+runs/
+provenance/
+*.log
+lock-screen-test.md

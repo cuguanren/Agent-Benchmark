@@ -1,0 +1,34 @@
+{
+  "repository": "https://github.com/agentscope-ai/PawBench",
+  "commit": "0f794a8bb6c27aa9ee4091b2691fa30e4ed9cc8f",
+  "taskId": "T100_reverse_decoder",
+  "canonicalId": "T037_claweval_T100_reverse_decoder",
+  "license": "Apache-2.0",
+  "files": [
+    [
+      "LICENSE",
+      "LICENSE"
+    ],
+    [
+      "NOTICE",
+      "NOTICE"
+    ],
+    [
+      "data/pawbench-v1.0/tasks/T037_claweval_T100_reverse_decoder.md",
+      "T037_claweval_T100_reverse_decoder/task.md"
+    ],
+    [
+      "data/pawbench-v1.0/assets/T037_claweval_T100_reverse_decoder/fixtures/decoder.py",
+      "T037_claweval_T100_reverse_decoder/fixtures/decoder.py"
+    ],
+    [
+      "data/pawbench-v1.0/assets/T037_claweval_T100_reverse_decoder/fixtures/target.txt",
+      "T037_claweval_T100_reverse_decoder/fixtures/target.txt"
+    ]
+  ],
+  "upstream": {
+    "repository": "https://github.com/claw-eval/claw-eval",
+    "license": "MIT",
+    "licenseCommit": "5680b8b11ff2ee5dd2b07b89086a29a5c5c984d7"
+  }
+}
